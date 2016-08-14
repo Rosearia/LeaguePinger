@@ -18,20 +18,20 @@ namespace LeaguePinger
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NA_Button_Click(object sender, EventArgs e)
         {
             try
             {
                 Ping ping = new Ping();
-                PingReply pingresult = ping.Send("4.2.2.2", 1000);
+                PingReply pingresult = ping.Send("192.64.170.1", 1000);
                 if (pingresult.Status.ToString() == "Success")
                 {
-                    button1.Text = pingresult.RoundtripTime.ToString() + " ms";
-                    pictureBox1.Image = Properties.Resources.status_o;
+                    NA_Button.Text = pingresult.RoundtripTime.ToString() + " ms";
+                    NA_StatusLight.Image = Properties.Resources.status_o;
                 }
                 else
                 {
-                    pictureBox1.Image = Properties.Resources.status_d;
+                    NA_StatusLight.Image = Properties.Resources.status_d;
                 }
 
             }
@@ -40,7 +40,6 @@ namespace LeaguePinger
                 MessageBox.Show("Sorry, there was an error.");
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
